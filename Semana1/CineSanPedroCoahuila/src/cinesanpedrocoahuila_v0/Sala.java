@@ -24,7 +24,7 @@ public class Sala {
 	public double calcularTotalVendido() {
 		double total = 0;
 		for(Boleto b : boletosVendidos) {
-			total = total + b.calcularPrecio();
+			total += b.calcularPrecio();
 		}
 		return total;
 	}

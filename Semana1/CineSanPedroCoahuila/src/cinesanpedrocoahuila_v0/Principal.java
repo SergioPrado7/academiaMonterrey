@@ -1,8 +1,12 @@
 package cinesanpedrocoahuila_v0;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Principal {
 
 	public static void main(String[] args) {
+		double totalDineroCine = 0;
 		Cine cine1 = new Cine();
 		System.out.println("Bienvenidos al " + cine1.getNombreCine());
 		System.out.println("El cual esta ubicado en " + cine1.getUbicacionCine());
@@ -30,16 +34,29 @@ public class Principal {
 		
 		sala3.venderBoleto(new BoletoBasico("A1"));
 		
-		for (Boleto b : sala1.getBoletosVendidos()) {
-			System.out.println("El asiento " + b.getNumeroAsiennto() + " --->" + " cobró: $" + b.calcularPrecio());
-			if (b instanceof BoletoPremium) {
-				BoletoPremium premium = (BoletoPremium) b;
-				premium.pedirComidaAsiento();
+		ArrayList<Sala> listaSalas = new ArrayList<>();
+		listaSalas.add(sala1);
+		listaSalas.add(sala2);
+		listaSalas.add(sala3);
+		
+		for(Sala salaActual : listaSalas) {
+			System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+			System.out.println("Reporte de la Sala " + salaActual.getNumeroSala());
+			for (Boleto b : salaActual.getBoletosVendidos()) {
+				System.out.println("El asiento " + b.getNumeroAsiennto() + " --->" + "Se cobró: $" + b.calcularPrecio());
+				if (b instanceof BoletoPremium) {
+					BoletoPremium premium = (BoletoPremium) b;
+					premium.pedirComidaAsiento();
+				}
 			}
+			double totalSala = salaActual.calcularTotalVendido();
+			System.out.println("Total vendido en la sala " + salaActual.getNumeroSala() + " = $" + totalSala);
+			totalDineroCine += totalSala;
 		}
+		
 		System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		
-		System.out.println("Total vendido en la sala : $" + sala1.calcularTotalVendido());
+		System.out.println("Total vendido en el " + cine1.getNombreCine() + " = $" + totalDineroCine);
 	}
 
 }
