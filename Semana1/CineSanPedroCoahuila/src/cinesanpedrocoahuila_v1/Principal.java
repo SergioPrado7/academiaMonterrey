@@ -7,6 +7,9 @@ public class Principal {
 
 	public static void main(String[] args) {
 		double totalDineroCine = 0;
+		boolean taquillaActiva = true;
+		Scanner teclas = new Scanner(System.in);
+		
 		Cine cine1 = new Cine();
 		System.out.println("Bienvenidos al " + cine1.getNombreCine());
 		System.out.println("El cual esta ubicado en " + cine1.getUbicacionCine());
@@ -25,53 +28,67 @@ public class Principal {
 		sala3.mostrarCartelera();
 		System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		
-		Scanner teclas = new Scanner(System.in);
-		System.out.println("Estas en la Taquilla");
-		System.out.println("¿Qué pelicula deseas ver? Elige la sala");
-		System.out.println("1 - " + sala1.getPeliculaAsignada().getTitulo());
-		System.out.println("2 - " + sala2.getPeliculaAsignada().getTitulo());
-		System.out.println("3 - " + sala3.getPeliculaAsignada().getTitulo());
-		
-		int numeroSala = teclas.nextInt();
-		teclas.nextLine();
-		
-		System.out.println("¿Qué boleto quiere?");
-		System.out.println("1- Basico en $50");
-		System.out.println("2- Premium en $100");
-		int tipoBoleto = teclas.nextInt();
-		teclas.nextLine();
-		
-		System.out.println("¿Dónde se gustaría sentar?");
-		System.out.println("Si es Basico: A1, A2 ...");
-		System.out.println("Si es Premium: V1, V2 ...");
-		String asientoEleccion = teclas.nextLine();
-		
-		if (numeroSala == 1) {
-			if (tipoBoleto == 1) {
-				sala1.venderBoleto(new BoletoBasico(asientoEleccion));
+		while (taquillaActiva) {
+			System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+			System.out.println("Estas en la Taquilla");
+			System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+			System.out.println("¿Qué pelicula deseas ver? Elige la sala");
+			System.out.println("1 - " + sala1.getPeliculaAsignada().getTitulo());
+			System.out.println("2 - " + sala2.getPeliculaAsignada().getTitulo());
+			System.out.println("3 - " + sala3.getPeliculaAsignada().getTitulo());
+			System.out.println("0 - Para salir y ver estado del cine");
+			
+			int numeroSala = teclas.nextInt();
+			teclas.nextLine();
+			
+			if (numeroSala == 0) {
+				System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+				System.out.println("Taquilla cerrada, aquí esta el reporte del día");
+				taquillaActiva = false;
 			}
-			else {
-				sala1.venderBoleto(new BoletoPremium(asientoEleccion));
+			else if(numeroSala == 1 || numeroSala == 2 || numeroSala == 3) {
+				System.out.println("¿Qué boleto quiere?");
+				System.out.println("1- Basico en $50");
+				System.out.println("2- Premium en $100");
+				int tipoBoleto = teclas.nextInt();
+				teclas.nextLine();
+				
+				System.out.println("¿Dónde se gustaría sentar?");
+				System.out.println("Si es Basico: A1, A2 ...");
+				System.out.println("Si es Premium: V1, V2 ...");
+				String asientoEleccion = teclas.nextLine();
+				
+				if (numeroSala == 1) {
+					if (tipoBoleto == 1) {
+						sala1.venderBoleto(new BoletoBasico(asientoEleccion));
+					}
+					else {
+						sala1.venderBoleto(new BoletoPremium(asientoEleccion));
+					}
+					System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+					System.out.println("Boleto vendido para la Sala 1");
+				}
+				else if (numeroSala == 2) {
+					if(tipoBoleto == 1) {
+						sala2.venderBoleto(new BoletoBasico(asientoEleccion));			
+					}
+					else {
+						sala2.venderBoleto(new BoletoPremium(asientoEleccion));
+					}
+					System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+					System.out.println("Boleto vendido para la Sala 2");
+				}
+				else if (numeroSala == 3) {
+					if (tipoBoleto == 1) {
+						sala3.venderBoleto(new BoletoBasico(asientoEleccion));			
+					}
+					else {
+						sala3.venderBoleto(new BoletoPremium(asientoEleccion));
+					}
+					System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+					System.out.println("Boleto vendido para la Sala 3");
+				}
 			}
-			System.out.println("Boleto vendido para la Sala 1");
-		}
-		else if (numeroSala == 2) {
-			if(tipoBoleto == 1) {
-				sala2.venderBoleto(new BoletoBasico(asientoEleccion));			
-			}
-			else {
-				sala2.venderBoleto(new BoletoPremium(asientoEleccion));
-			}
-			System.out.println("Boleto vendido para la Sala 2");
-		}
-		else if (numeroSala == 3) {
-			if (tipoBoleto == 1) {
-				sala3.venderBoleto(new BoletoBasico(asientoEleccion));			
-			}
-			else {
-				sala3.venderBoleto(new BoletoPremium(asientoEleccion));
-			}
-			System.out.println("Boleto vendido para la Sala 3");
 		}
 		
 		teclas.close();
@@ -94,7 +111,7 @@ public class Principal {
 			System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 			System.out.println("Reporte de la Sala " + salaActual.getNumeroSala());
 			for (Boleto b : salaActual.getBoletosVendidos()) {
-				System.out.println("El asiento " + b.getNumeroAsiennto() + " --->" + "Se cobró: $" + b.calcularPrecio());
+				System.out.println("El asiento " + b.getNumeroAsiennto() + " ---> " + "Se cobró: $" + b.calcularPrecio());
 				if (b instanceof BoletoPremium) {
 					BoletoPremium premium = (BoletoPremium) b;
 					premium.pedirComidaAsiento();
