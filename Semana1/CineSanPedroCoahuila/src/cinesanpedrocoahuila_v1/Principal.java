@@ -1,6 +1,7 @@
 package cinesanpedrocoahuila_v1;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Principal {
 
@@ -24,14 +25,65 @@ public class Principal {
 		sala3.mostrarCartelera();
 		System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		
-		sala1.venderBoleto(new BoletoBasico("A1"));
-		sala1.venderBoleto(new BoletoBasico("A2"));
-		sala1.venderBoleto(new BoletoPremium("V1"));
+		Scanner teclas = new Scanner(System.in);
+		System.out.println("Estas en la Taquilla");
+		System.out.println("¿Qué pelicula deseas ver? Elige la sala");
+		System.out.println("1 - " + sala1.getPeliculaAsignada().getTitulo());
+		System.out.println("2 - " + sala2.getPeliculaAsignada().getTitulo());
+		System.out.println("3 - " + sala3.getPeliculaAsignada().getTitulo());
 		
-		sala2.venderBoleto(new BoletoPremium("V1"));
-		sala2.venderBoleto(new BoletoPremium("V2"));
+		int numeroSala = teclas.nextInt();
+		teclas.nextLine();
 		
-		sala3.venderBoleto(new BoletoBasico("A1"));
+		System.out.println("¿Qué boleto quiere?");
+		System.out.println("1- Basico en $50");
+		System.out.println("2- Premium en $100");
+		int tipoBoleto = teclas.nextInt();
+		teclas.nextLine();
+		
+		System.out.println("¿Dónde se gustaría sentar?");
+		System.out.println("Si es Basico: A1, A2 ...");
+		System.out.println("Si es Premium: V1, V2 ...");
+		String asientoEleccion = teclas.nextLine();
+		
+		if (numeroSala == 1) {
+			if (tipoBoleto == 1) {
+				sala1.venderBoleto(new BoletoBasico(asientoEleccion));
+			}
+			else {
+				sala1.venderBoleto(new BoletoPremium(asientoEleccion));
+			}
+			System.out.println("Boleto vendido para la Sala 1");
+		}
+		else if (numeroSala == 2) {
+			if(tipoBoleto == 1) {
+				sala2.venderBoleto(new BoletoBasico(asientoEleccion));			
+			}
+			else {
+				sala2.venderBoleto(new BoletoPremium(asientoEleccion));
+			}
+			System.out.println("Boleto vendido para la Sala 2");
+		}
+		else if (numeroSala == 3) {
+			if (tipoBoleto == 1) {
+				sala3.venderBoleto(new BoletoBasico(asientoEleccion));			
+			}
+			else {
+				sala3.venderBoleto(new BoletoPremium(asientoEleccion));
+			}
+			System.out.println("Boleto vendido para la Sala 3");
+		}
+		
+		teclas.close();
+		
+		//sala1.venderBoleto(new BoletoBasico("A1"));
+		//sala1.venderBoleto(new BoletoBasico("A2"));
+		//sala1.venderBoleto(new BoletoPremium("V1"));
+		
+		//sala2.venderBoleto(new BoletoPremium("V1"));
+		//sala2.venderBoleto(new BoletoPremium("V2"));
+		
+		//sala3.venderBoleto(new BoletoBasico("A1"));
 		
 		ArrayList<Sala> listaSalas = new ArrayList<>();
 		listaSalas.add(sala1);
