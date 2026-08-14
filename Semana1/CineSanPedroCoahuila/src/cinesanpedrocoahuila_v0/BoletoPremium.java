@@ -6,11 +6,11 @@ public class BoletoPremium extends Boleto{
 	}
 	
 	@Override
-	public double CalcularPrecio() {
+	public double calcularPrecio() {
 		return 100;
 	}
 	
-	public void PedirComidaAsiento() {
+	public void pedirComidaAsiento() {
 		System.out.println("Comida en camino al asiento Premium: " + numeroAsiento);
 	}
 }

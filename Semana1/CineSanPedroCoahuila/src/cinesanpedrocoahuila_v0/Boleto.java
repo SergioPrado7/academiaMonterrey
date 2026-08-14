@@ -7,7 +7,7 @@ public abstract class Boleto {
 		this.numeroAsiento = numeroAsiento;
 	}
 	
-	public abstract double CalcularPrecio();
+	public abstract double calcularPrecio();
 	
 	public String getNumeroAsiennto() {
 		return numeroAsiento;

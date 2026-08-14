@@ -5,24 +5,26 @@ import java.util.ArrayList;
 public class Sala {
 	private int numeroSala;
 	private Pelicula peliculaAsignada;
-	private Pelicula duracionPelicula;
 	private ArrayList<Boleto> boletosVendidos;
 	
-	public Sala(int numeroSala, Pelicula peliculaAsignada, Pelicula duracionPelicula) {
+	public Sala(int numeroSala, Pelicula peliculaAsignada) {
 		this.numeroSala = numeroSala;
 		this.peliculaAsignada = peliculaAsignada;
-		this.duracionPelicula = duracionPelicula;
 		this.boletosVendidos = new ArrayList<>();
 	}
 	
-	public void VenderBoleto(Boleto nuevoBoleto) {
+	public void mostrarCartelera() {
+		System.out.println("Función en Sala " + numeroSala + " ---> Pelicula: " + peliculaAsignada.getTitulo() + " / Duración: " + peliculaAsignada.getDuracionMins() + " mins");
+	}
+	
+	public void venderBoleto(Boleto nuevoBoleto) {
 		boletosVendidos.add(nuevoBoleto);
 	}
 	
-	public double CalcularTotalVendido() {
+	public double calcularTotalVendido() {
 		double total = 0;
 		for(Boleto b : boletosVendidos) {
-			total = total + b.CalcularPrecio();
+			total = total + b.calcularPrecio();
 		}
 		return total;
 	}
@@ -33,10 +35,6 @@ public class Sala {
 
 	public Pelicula getPeliculaAsignada() {
 		return peliculaAsignada;
-	}
-	
-	public Pelicula getDuracionPelicula() {
-		return duracionPelicula;
 	}
 	
 	public ArrayList<Boleto> getBoletosVendidos() {

@@ -6,7 +6,7 @@ public class BoletoBasico extends Boleto {
 	}
 	
 	@Override
-	public double CalcularPrecio() {
+	public double calcularPrecio() {
 		return 50.0;
 	}
 }

@@ -12,32 +12,34 @@ public class Principal {
 		Pelicula peli2 = new Pelicula("Avenger End Game", 115);
 		Pelicula peli3 = new Pelicula("Spiderman Brands New Day", 125);
 		
-		Sala sala1 = new Sala(1, peli1, peli1);
-		Sala sala2 = new Sala(2, peli2, peli2);
-		Sala sala3 = new Sala(3, peli3, peli3);
+		Sala sala1 = new Sala(1, peli1);
+		Sala sala2 = new Sala(2, peli2);
+		Sala sala3 = new Sala(3, peli3);
 		
-		System.out.println("Funcion en Sala " + sala1.getNumeroSala() + " --->" + " Pelicula: " + sala1.getPeliculaAsignada().getTitulo() + " / Duración: " + sala1.getDuracionPelicula().getDuracionMins() + " mins");
-		System.out.println("Funcion en Sala " + sala2.getNumeroSala() + " --->" + " Pelicula: " + sala2.getPeliculaAsignada().getTitulo() + " / Duración: " + sala2.getDuracionPelicula().getDuracionMins() + " mins");
-		System.out.println("Funcion en Sala " + sala3.getNumeroSala() + " --->" + " Pelicula: " + sala3.getPeliculaAsignada().getTitulo() + " / Duración: " + sala3.getDuracionPelicula().getDuracionMins() + " mins");
+		sala1.mostrarCartelera();
+		sala2.mostrarCartelera();
+		sala3.mostrarCartelera();
 		System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		
-		sala1.VenderBoleto(new BoletoBasico("A1"));
-		sala1.VenderBoleto(new BoletoBasico("A2"));
-		sala1.VenderBoleto(new BoletoPremium("V1"));
-		sala2.VenderBoleto(new BoletoPremium("V1"));
-		sala2.VenderBoleto(new BoletoPremium("V2"));
-		sala3.VenderBoleto(new BoletoBasico("A1"));
+		sala1.venderBoleto(new BoletoBasico("A1"));
+		sala1.venderBoleto(new BoletoBasico("A2"));
+		sala1.venderBoleto(new BoletoPremium("V1"));
+		
+		sala2.venderBoleto(new BoletoPremium("V1"));
+		sala2.venderBoleto(new BoletoPremium("V2"));
+		
+		sala3.venderBoleto(new BoletoBasico("A1"));
 		
 		for (Boleto b : sala1.getBoletosVendidos()) {
-			System.out.println("El asiento " + b.getNumeroAsiennto() + " --->" + " cobró: $" + b.CalcularPrecio());
+			System.out.println("El asiento " + b.getNumeroAsiennto() + " --->" + " cobró: $" + b.calcularPrecio());
 			if (b instanceof BoletoPremium) {
 				BoletoPremium premium = (BoletoPremium) b;
-				premium.PedirComidaAsiento();
+				premium.pedirComidaAsiento();
 			}
 		}
 		System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		
-		System.out.println("Total vendido en la sala : $" + sala1.CalcularTotalVendido());
+		System.out.println("Total vendido en la sala : $" + sala1.calcularTotalVendido());
 	}
 
 }
