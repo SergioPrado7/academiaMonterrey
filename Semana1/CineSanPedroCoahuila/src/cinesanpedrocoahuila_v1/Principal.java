@@ -32,7 +32,7 @@ public class Principal {
 			System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 			System.out.println("Estas en la Taquilla");
 			System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-			System.out.println("¿Qué pelicula deseas ver? Elige la sala");
+			System.out.println("¿Qué pelicula deseas ver? Elige la pelicula");
 			System.out.println("1 - " + sala1.getPeliculaAsignada().getTitulo());
 			System.out.println("2 - " + sala2.getPeliculaAsignada().getTitulo());
 			System.out.println("3 - " + sala3.getPeliculaAsignada().getTitulo());
@@ -54,8 +54,8 @@ public class Principal {
 				teclas.nextLine();
 				
 				System.out.println("¿Dónde se gustaría sentar?");
-				System.out.println("Si es Basico: A1, A2 ...");
-				System.out.println("Si es Premium: V1, V2 ...");
+				System.out.println("Si es Basico: B1, B2 ...");
+				System.out.println("Si es Premium: P1, P2 ...");
 				String asientoEleccion = teclas.nextLine();
 				
 				if (numeroSala == 1) {

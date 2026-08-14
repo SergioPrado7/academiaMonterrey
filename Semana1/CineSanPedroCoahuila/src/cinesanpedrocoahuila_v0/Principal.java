@@ -24,14 +24,14 @@ public class Principal {
 		sala3.mostrarCartelera();
 		System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		
-		sala1.venderBoleto(new BoletoBasico("A1"));
-		sala1.venderBoleto(new BoletoBasico("A2"));
-		sala1.venderBoleto(new BoletoPremium("V1"));
+		sala1.venderBoleto(new BoletoBasico("B1"));
+		sala1.venderBoleto(new BoletoBasico("B2"));
+		sala1.venderBoleto(new BoletoPremium("P1"));
 		
-		sala2.venderBoleto(new BoletoPremium("V1"));
-		sala2.venderBoleto(new BoletoPremium("V2"));
+		sala2.venderBoleto(new BoletoPremium("P1"));
+		sala2.venderBoleto(new BoletoPremium("P2"));
 		
-		sala3.venderBoleto(new BoletoBasico("A1"));
+		sala3.venderBoleto(new BoletoBasico("B1"));
 		
 		ArrayList<Sala> listaSalas = new ArrayList<>();
 		listaSalas.add(sala1);
@@ -42,7 +42,7 @@ public class Principal {
 			System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 			System.out.println("Reporte de la Sala " + salaActual.getNumeroSala());
 			for (Boleto b : salaActual.getBoletosVendidos()) {
-				System.out.println("El asiento " + b.getNumeroAsiennto() + " --->" + "Se cobró: $" + b.calcularPrecio());
+				System.out.println("El asiento " + b.getNumeroAsiennto() + " ---> " + "Se cobró: $" + b.calcularPrecio());
 				if (b instanceof BoletoPremium) {
 					BoletoPremium premium = (BoletoPremium) b;
 					premium.pedirComidaAsiento();
