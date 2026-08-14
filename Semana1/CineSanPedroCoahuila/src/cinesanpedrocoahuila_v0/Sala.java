@@ -5,11 +5,13 @@ import java.util.ArrayList;
 public class Sala {
 	private int numeroSala;
 	private Pelicula peliculaAsignada;
+	private Pelicula duracionPelicula;
 	private ArrayList<Boleto> boletosVendidos;
 	
-	public Sala(int numeroSala, Pelicula peliculaAsignada) {
+	public Sala(int numeroSala, Pelicula peliculaAsignada, Pelicula duracionPelicula) {
 		this.numeroSala = numeroSala;
 		this.peliculaAsignada = peliculaAsignada;
+		this.duracionPelicula = duracionPelicula;
 		this.boletosVendidos = new ArrayList<>();
 	}
 	
@@ -31,6 +33,10 @@ public class Sala {
 
 	public Pelicula getPeliculaAsignada() {
 		return peliculaAsignada;
+	}
+	
+	public Pelicula getDuracionPelicula() {
+		return duracionPelicula;
 	}
 	
 	public ArrayList<Boleto> getBoletosVendidos() {

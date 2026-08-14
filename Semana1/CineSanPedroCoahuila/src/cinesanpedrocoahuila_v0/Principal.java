@@ -11,9 +11,12 @@ public class Principal {
 		Pelicula peli2 = new Pelicula("Avenger End Game", 115);
 		Pelicula peli3 = new Pelicula("Spiderman Brands New Day", 125);
 		
-		Sala sala1 = new Sala(1, peli1);
-		Sala sala2 = new Sala(2, peli2);
-		Sala sala3 = new Sala(3, peli3);
+		Sala sala1 = new Sala(1, peli1, peli1);
+		Sala sala2 = new Sala(2, peli2, peli2);
+		Sala sala3 = new Sala(3, peli3, peli3);
+		
+		System.out.println("Funcion en Sala " + sala1.getNumeroSala() + " --->" + " Pelicula: " + sala1.getPeliculaAsignada().getTitulo() + " / Duración: " + sala1.getDuracionPelicula().getDuracionMins() + " mins");
+		
 	}
 
 }
