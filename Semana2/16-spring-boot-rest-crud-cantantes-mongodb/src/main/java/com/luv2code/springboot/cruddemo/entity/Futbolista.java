@@ -3,86 +3,97 @@ package com.luv2code.springboot.cruddemo.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "cantantes")
+@Document(collection = "futbolistas")
 public class Futbolista {
 
     @Id
     private String id;
 
     private String nombre;
-    private String nacionalidad;
-    private int popularidad; // Aquí es una escala del 1 al 100
-    private double ganancias; // Aquí es en dolares y por millones
-    private String albumMasVendido;
+    private String apellido;
+    private String posicion;
+    private String seleccion;
+    private String club;
+    private int golesTotales;
 
     public Futbolista() {
     }
 
-    public Futbolista(String nombre, String nacionalidad, int popularidad, double ganancias, String albumMasVendido) {
+    public Futbolista(String nombre, String apellido, String posicion, String seleccion, String club, int golesTotales) {
         this.nombre = nombre;
-        this.nacionalidad = nacionalidad;
-        this.popularidad = popularidad;
-        this.ganancias = ganancias;
-        this.albumMasVendido = albumMasVendido;
+        this.apellido = apellido;
+        this.posicion = posicion;
+        this.seleccion = seleccion;
+        this.club = club;
+        this.golesTotales = golesTotales;
     }
 
-    public String getId() {
-        return id;
+    public String getId() { 
+    	return id; 
+    }
+    
+    public void setId(String id) { 
+    	this.id = id; 
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getNombre() { 
+    	return nombre; 
+    }
+    
+    public void setNombre(String nombre) { 
+    	this.nombre = nombre; 
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getApellido() { 
+    	return apellido; 
+    }
+    
+    public void setApellido(String apellido) { 
+    	this.apellido = apellido; 
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getPosicion() { 
+    	return posicion; 
+    }
+    
+    public void setPosicion(String posicion) { 
+    	this.posicion = posicion; 
     }
 
-    public String getNacionalidad() {
-        return nacionalidad;
+    public String getSeleccion() { 
+    	return seleccion; 
+    }
+    
+    public void setSeleccion(String seleccion) { 
+    	this.seleccion = seleccion;
     }
 
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
+    public String getClub() { 
+    	return club; 
+    }
+    
+    public void setClub(String club) { 
+    	this.club = club; 
     }
 
-    public int getPopularidad() {
-        return popularidad;
+    public int getGolesTotales() { 
+    	return golesTotales; 
     }
-
-    public void setPopularidad(int popularidad) {
-        this.popularidad = popularidad;
-    }
-
-    public double getGanancias() {
-        return ganancias;
-    }
-
-    public void setGanancias(double ganancias) {
-        this.ganancias = ganancias;
-    }
-
-    public String getAlbumMasVendido() {
-        return albumMasVendido;
-    }
-
-    public void setAlbumMasVendido(String albumMasVendido) {
-        this.albumMasVendido = albumMasVendido;
+    
+    public void setGolesTotales(int golesTotales) { 
+    	this.golesTotales = golesTotales; 
     }
 
     @Override
     public String toString() {
-        return "Cantante{" +
+        return "Futbolista{" +
                 "id='" + id + '\'' +
                 ", nombre='" + nombre + '\'' +
-                ", nacionalidad='" + nacionalidad + '\'' +
-                ", popularidad=" + popularidad +
-                ", ganancias=" + ganancias +
-                ", albumMasVendido='" + albumMasVendido + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", posicion='" + posicion + '\'' +
+                ", seleccion='" + seleccion + '\'' +
+                ", club='" + club + '\'' +
+                ", golesTotales=" + golesTotales +
                 '}';
     }
 }
