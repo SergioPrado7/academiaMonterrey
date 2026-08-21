@@ -17,3 +17,13 @@
 2026-08-21 01:47:27.570: [INFO] BookmarksLoadDropped droppedNodes=0
 2026-08-21 01:47:27.570: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
 2026-08-21 01:47:45.541: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-08-21 01:51:02.834: [INFO] CurrentProfilePath: C:\Users\sergi\OneDrive\Escritorio\academiaMonterrey\Semana2\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-08-21 01:51:02.834: [INFO] Profiles total count: 1
+2026-08-21 01:51:02.835: [INFO] Profile: name=Perfil 1 path=C:\Users\sergi\OneDrive\Escritorio\academiaMonterrey\Semana2\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-08-21T01:47:44.322Z
+2026-08-21 01:51:02.835: [INFO] LastUsedProfileDir: C:\Users\sergi\OneDrive\Escritorio\academiaMonterrey\Semana2\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-08-21 01:51:02.835: [INFO] MostRecentlyActiveProfile: name=Perfil 1 path=C:\Users\sergi\OneDrive\Escritorio\academiaMonterrey\Semana2\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-08-21T01:47:44.322Z
+2026-08-21 01:51:02.835: [INFO] OnDoneLoading sync enabled: 0
+2026-08-21 01:51:02.835: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-08-21 01:51:02.835: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-08-21 01:51:02.835: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-08-21 01:52:43.610: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
