@@ -1,6 +1,6 @@
 package com.luv2code.springboot.cruddemo.service;
 
-import com.luv2code.springboot.cruddemo.entity.Employee;
+import com.luv2code.springboot.cruddemo.entity.Cantante;
 import com.luv2code.springboot.cruddemo.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,12 +20,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> findAll() {
+    public List<Cantante> findAll() {
         return employeeRepository.findAll();
     }
 
     @Override
-    public Employee findById(String theId) {
+    public Cantante findById(String theId) {
 
         // findById() devuelve Optional<Employee>. Lo convertimos a null para
         // conservar el mismo contrato que tenía la versión con JPA: el
@@ -39,7 +39,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     // soporta transacciones multi-documento. Y no hacen falta: cada operación
     // toca un solo documento, y MongoDB garantiza atomicidad por documento.
     @Override
-    public Employee save(Employee theEmployee) {
+    public Cantante save(Cantante theEmployee) {
         return employeeRepository.save(theEmployee);
     }
 

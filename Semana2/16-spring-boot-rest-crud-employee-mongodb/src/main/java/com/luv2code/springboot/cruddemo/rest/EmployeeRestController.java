@@ -1,7 +1,7 @@
 package com.luv2code.springboot.cruddemo.rest;
 
 import tools.jackson.databind.json.JsonMapper;
-import com.luv2code.springboot.cruddemo.entity.Employee;
+import com.luv2code.springboot.cruddemo.entity.Cantante;
 import com.luv2code.springboot.cruddemo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +25,7 @@ public class EmployeeRestController {
 
     // expose "/employees" and return a list of employees
     @GetMapping("/employees")
-    public List<Employee> findAll() {
+    public List<Cantante> findAll() {
         return employeeService.findAll();
     }
 
@@ -34,9 +34,9 @@ public class EmployeeRestController {
     // El employeeId ahora es String: un ObjectId de MongoDB, no un entero.
 
     @GetMapping("/employees/{employeeId}")
-    public Employee getEmployee(@PathVariable String employeeId) {
+    public Cantante getEmployee(@PathVariable String employeeId) {
 
-        Employee theEmployee = employeeService.findById(employeeId);
+        Cantante theEmployee = employeeService.findById(employeeId);
 
         if (theEmployee == null) {
             throw new RuntimeException("Employee id not found - " + employeeId);
@@ -48,7 +48,7 @@ public class EmployeeRestController {
     // add mapping for POST /employees - add new employee
 
     @PostMapping("/employees")
-    public Employee addEmployee(@RequestBody Employee theEmployee) {
+    public Cantante addEmployee(@RequestBody Cantante theEmployee) {
 
         // also just in case they pass an id in JSON ... set id to null
         // this is to force a save of new item ... instead of update
@@ -59,7 +59,7 @@ public class EmployeeRestController {
 
         theEmployee.setId(null);
 
-        Employee dbEmployee = employeeService.save(theEmployee);
+        Cantante dbEmployee = employeeService.save(theEmployee);
 
         return dbEmployee;
     }
@@ -67,9 +67,9 @@ public class EmployeeRestController {
     // add mapping for PUT /employees - update existing employee
 
     @PutMapping("/employees")
-    public Employee updateEmployee(@RequestBody Employee theEmployee) {
+    public Cantante updateEmployee(@RequestBody Cantante theEmployee) {
 
-        Employee dbEmployee = employeeService.save(theEmployee);
+        Cantante dbEmployee = employeeService.save(theEmployee);
 
         return dbEmployee;
     }
@@ -78,11 +78,11 @@ public class EmployeeRestController {
     // update
 
     @PatchMapping("/employees/{employeeId}")
-    public Employee patchEmployee(@PathVariable String employeeId,
+    public Cantante patchEmployee(@PathVariable String employeeId,
             @RequestBody Map<String, Object> patchPayload) {
 
         // Step 1: Retrieve the existing employee from database
-        Employee tempEmployee = employeeService.findById(employeeId);
+        Cantante tempEmployee = employeeService.findById(employeeId);
 
         if (tempEmployee == null) {
             throw new RuntimeException("Employee id not found - " + employeeId);
@@ -97,10 +97,10 @@ public class EmployeeRestController {
 
         // Step 3: Apply the partial update
         // This creates a NEW employee object with the updates applied
-        Employee patchedEmployee = jsonMapper.updateValue(tempEmployee, patchPayload);
+        Cantante patchedEmployee = jsonMapper.updateValue(tempEmployee, patchPayload);
 
         // Step 4: Save the updated employee to database and return it
-        Employee dbEmployee = employeeService.save(patchedEmployee);
+        Cantante dbEmployee = employeeService.save(patchedEmployee);
 
         return dbEmployee;
     }
@@ -110,7 +110,7 @@ public class EmployeeRestController {
     @DeleteMapping("/employees/{employeeId}")
     public String deleteEmployee(@PathVariable String employeeId) {
 
-        Employee tempEmployee = employeeService.findById(employeeId);
+        Cantante tempEmployee = employeeService.findById(employeeId);
 
         // throw exception if null
 
