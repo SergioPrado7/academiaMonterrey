@@ -1,6 +1,6 @@
 # ⚽ API REST de Futbolistas - Spring Boot & Spring Data JPA
 
-## ✏️ Este es el nombre del primer proyecto: 
+✏️ **Este es el nombre del proyecto:**
 `16-spring-boot-rest-crud-futbolistas-with-spring-data-jpa`
 
 ## 📝 Descripción
