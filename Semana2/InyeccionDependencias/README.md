@@ -30,7 +30,7 @@ La clase `Main` solo pide la sala al `AdministradorCine` y arranca la función.
 
 ---
 
-## El "Por Qué" detrás de este cambio
+## El "¿Por Qué?" detrás de este cambio
 
 ### ¿Por qué esto sí es Inyección de Dependencias?
 Porque le quitamos a la `SalaCine` la responsabilidad de fabricar sus propias herramientas. La sala ya no dice: *"yo me compro mi proyector"*, sino que dice: *"yo solo sé reproducir películas, que el administrador me entregue el proyector que quiera"*. 
