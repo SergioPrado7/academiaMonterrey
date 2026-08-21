@@ -37,7 +37,7 @@ Se realizó una refactorización completa en todas las capas de la aplicación (
 
 ## 🗄️ Configuración de la Base de Datos
 
-Las instrucciones y el script SQL necesarios para inicializar la base de datos, crear el usuario con los permisos correctos (compatibles con entornos Docker) y generar la tabla con datos de prueba, **se encuentran dentro de los archivos de este proyecto**. 
+Las instrucciones y el script SQL necesarios para inicializar la base de datos, crear el usuario con los permisos correctos (compatibles con entornos Docker) y generar la tabla con datos de prueba, **se encuentran dentro de los archivos de este proyecto src/main/resources**. 
 
 > **Nota:** Antes de ejecutar la aplicación con Spring Boot, asegúrate de correr el script SQL incluido en tu gestor de base de datos (como phpMyAdmin o MySQL Workbench) para evitar errores de conexión (`ApplicationContext`).
 
