@@ -1,7 +1,7 @@
 # ⚽ API REST de Futbolistas - Spring Boot & Spring Data MongoDB
 
-✏️ **Este es el nombre del proyecto:** 
-`17-spring-boot-rest-crud-futbolistas-mongodb`
+✏️ **Este es el nombre del proyecto:**
+`16-spring-boot-rest-crud-futbolistas-mongodb`
 
 ## 📝 Descripción
 Este proyecto es una API RESTful desarrollada en Java con Spring Boot. Se basa en el contexto deportivo para gestionar **Futbolistas**. El sistema permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) completas sobre los registros de los jugadores. (Sobre la terminal mediante scripts de automatización o la BD correspondiente).
