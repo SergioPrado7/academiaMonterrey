@@ -1,4 +1,4 @@
-package gestion_v0;
+package gestion_v1;
 
 public interface Proyector {
 	void reproducirPelicula(String pelicula);

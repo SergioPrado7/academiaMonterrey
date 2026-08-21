@@ -1,11 +1,11 @@
-package gestion_v0;
+package gestion_v1;
 
 public class Principal {
 	public static void main(String[] args) {
 		System.out.println("ESTE ES EL SISTEMA DE GESTION DEL CINE SAN PEDRO \n");
 		
-		SalaCine salaVIP = new SalaCine("V1", "IMAX");
-		SalaCine salaBase = new SalaCine("B1", "Digital");
+		SalaCine salaVIP = AdministradorCine.configurarSalaVIP();
+		SalaCine salaBase = AdministradorCine.configurarSalaBase();
 		
 		salaVIP.iniciarFuncion("Narnia");
 		System.out.println("-----------------------------------------------------------------------------------------------------------------------------");

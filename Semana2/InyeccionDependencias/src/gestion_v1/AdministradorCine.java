@@ -1,4 +1,4 @@
-package gestion_v0;
+package gestion_v1;
 
 public class AdministradorCine {
 	public static SalaCine configurarSalaVIP() {
