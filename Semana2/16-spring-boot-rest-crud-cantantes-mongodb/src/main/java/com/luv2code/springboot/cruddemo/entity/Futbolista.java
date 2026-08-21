@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "cantantes")
-public class Cantante {
+public class Futbolista {
 
     @Id
     private String id;
@@ -15,10 +15,10 @@ public class Cantante {
     private double ganancias; // Aquí es en dolares y por millones
     private String albumMasVendido;
 
-    public Cantante() {
+    public Futbolista() {
     }
 
-    public Cantante(String nombre, String nacionalidad, int popularidad, double ganancias, String albumMasVendido) {
+    public Futbolista(String nombre, String nacionalidad, int popularidad, double ganancias, String albumMasVendido) {
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;
         this.popularidad = popularidad;

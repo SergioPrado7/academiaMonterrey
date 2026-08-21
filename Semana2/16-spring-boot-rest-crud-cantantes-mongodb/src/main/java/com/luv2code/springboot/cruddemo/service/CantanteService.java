@@ -1,15 +1,15 @@
 package com.luv2code.springboot.cruddemo.service;
 
-import com.luv2code.springboot.cruddemo.entity.Cantante;
+import com.luv2code.springboot.cruddemo.entity.Futbolista;
 
 import java.util.List;
 
 public interface CantanteService {
-    List<Cantante> findAll();
+    List<Futbolista> findAll();
     
-    Cantante findById(String theId);
+    Futbolista findById(String theId);
     
-    Cantante save(Cantante elCantante);
+    Futbolista save(Futbolista elCantante);
     
     void deleteById(String theId);
 }

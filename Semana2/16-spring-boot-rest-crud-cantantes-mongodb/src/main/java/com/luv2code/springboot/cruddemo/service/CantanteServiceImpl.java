@@ -1,6 +1,6 @@
 package com.luv2code.springboot.cruddemo.service;
 
-import com.luv2code.springboot.cruddemo.entity.Cantante;
+import com.luv2code.springboot.cruddemo.entity.Futbolista;
 import com.luv2code.springboot.cruddemo.repository.CantanteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,17 +18,17 @@ public class CantanteServiceImpl implements CantanteService {
     }
 
     @Override
-    public List<Cantante> findAll() {
+    public List<Futbolista> findAll() {
         return cantanteRepository.findAll();
     }
 
     @Override
-    public Cantante findById(String theId) {
+    public Futbolista findById(String theId) {
         return cantanteRepository.findById(theId).orElse(null);
     }
 
     @Override
-    public Cantante save(Cantante elCantante) {
+    public Futbolista save(Futbolista elCantante) {
         return cantanteRepository.save(elCantante);
     }
 

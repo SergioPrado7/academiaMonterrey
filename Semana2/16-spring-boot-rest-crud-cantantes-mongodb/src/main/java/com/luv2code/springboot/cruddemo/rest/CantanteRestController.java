@@ -1,7 +1,7 @@
 package com.luv2code.springboot.cruddemo.rest;
 
 import tools.jackson.databind.json.JsonMapper;
-import com.luv2code.springboot.cruddemo.entity.Cantante;
+import com.luv2code.springboot.cruddemo.entity.Futbolista;
 import com.luv2code.springboot.cruddemo.service.CantanteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,13 +23,13 @@ public class CantanteRestController {
     }
 
     @GetMapping("/cantantes")
-    public List<Cantante> findAll() {
+    public List<Futbolista> findAll() {
         return cantanteService.findAll();
     }
 
     @GetMapping("/cantantes/{cantanteId}")
-    public Cantante getCantante(@PathVariable String cantanteId) {
-        Cantante elCantante = cantanteService.findById(cantanteId);
+    public Futbolista getCantante(@PathVariable String cantanteId) {
+        Futbolista elCantante = cantanteService.findById(cantanteId);
 
         if (elCantante == null) {
             throw new RuntimeException("Cantante id no encontrado - " + cantanteId);
@@ -39,21 +39,21 @@ public class CantanteRestController {
     }
 
     @PostMapping("/cantantes")
-    public Cantante addCantante(@RequestBody Cantante elCantante) {
+    public Futbolista addCantante(@RequestBody Futbolista elCantante) {
         elCantante.setId(null);
         return cantanteService.save(elCantante);
     }
 
     @PutMapping("/cantantes")
-    public Cantante updateCantante(@RequestBody Cantante elCantante) {
+    public Futbolista updateCantante(@RequestBody Futbolista elCantante) {
         return cantanteService.save(elCantante);
     }
 
     @PatchMapping("/cantantes/{cantanteId}")
-    public Cantante patchCantante(@PathVariable String cantanteId,
+    public Futbolista patchCantante(@PathVariable String cantanteId,
             @RequestBody Map<String, Object> patchPayload) {
 
-        Cantante tempCantante = cantanteService.findById(cantanteId);
+        Futbolista tempCantante = cantanteService.findById(cantanteId);
 
         if (tempCantante == null) {
             throw new RuntimeException("Cantante id no encontrado - " + cantanteId);
@@ -63,13 +63,13 @@ public class CantanteRestController {
             throw new RuntimeException("El id del cantante no puede ser modificado. Quita 'id' del request body.");
         }
 
-        Cantante patchedCantante = jsonMapper.updateValue(tempCantante, patchPayload);
+        Futbolista patchedCantante = jsonMapper.updateValue(tempCantante, patchPayload);
         return cantanteService.save(patchedCantante);
     }
 
     @DeleteMapping("/cantantes/{cantanteId}")
     public String deleteCantante(@PathVariable String cantanteId) {
-        Cantante tempCantante = cantanteService.findById(cantanteId);
+        Futbolista tempCantante = cantanteService.findById(cantanteId);
 
         if (tempCantante == null) {
             throw new RuntimeException("Cantante id no encontrado - " + cantanteId);
