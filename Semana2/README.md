@@ -5,7 +5,7 @@ En este directorio encontrarás los tres proyectos correspondientes a las activi
 ### 📂 Proyectos incluidos:
 
 1. **`16-spring-boot-rest-crud-futbolistas-with-spring-data-jpa`**
-2. **`16-spring-boot-rest-crud-cantantes-mongodb`**
+2. **`16-spring-boot-rest-crud-futbolistas-mongodb`**
 3. **`InyeccionDependencias`**
 
 ### 📝 Documentación Detallada
