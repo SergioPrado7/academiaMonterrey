@@ -1,7 +1,7 @@
 package com.luv2code.springboot.cruddemo.service;
 
 import com.luv2code.springboot.cruddemo.entity.Cantante;
-import com.luv2code.springboot.cruddemo.repository.EmployeeRepository;
+import com.luv2code.springboot.cruddemo.repository.CantanteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +12,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     // Antes se inyectaba EmployeeDAO. Ahora es el repositorio de Spring Data,
     // que no tiene implementación escrita a mano.
-    private EmployeeRepository employeeRepository;
+    private CantanteRepository employeeRepository;
 
     @Autowired
-    public EmployeeServiceImpl(EmployeeRepository theEmployeeRepository) {
+    public EmployeeServiceImpl(CantanteRepository theEmployeeRepository) {
         employeeRepository = theEmployeeRepository;
     }
 
