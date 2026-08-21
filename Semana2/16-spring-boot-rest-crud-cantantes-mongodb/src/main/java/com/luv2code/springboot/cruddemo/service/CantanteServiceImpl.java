@@ -1,7 +1,7 @@
 package com.luv2code.springboot.cruddemo.service;
 
 import com.luv2code.springboot.cruddemo.entity.Futbolista;
-import com.luv2code.springboot.cruddemo.repository.CantanteRepository;
+import com.luv2code.springboot.cruddemo.repository.FutbolistaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +10,10 @@ import java.util.List;
 @Service
 public class CantanteServiceImpl implements CantanteService {
 
-    private CantanteRepository cantanteRepository;
+    private FutbolistaRepository cantanteRepository;
 
     @Autowired
-    public CantanteServiceImpl(CantanteRepository theCantanteRepository) {
+    public CantanteServiceImpl(FutbolistaRepository theCantanteRepository) {
         cantanteRepository = theCantanteRepository;
     }
 
