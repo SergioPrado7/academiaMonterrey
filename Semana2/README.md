@@ -10,7 +10,6 @@ El sistema permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar)
 ## 🔄 ¿Qué cambios se implementaron?
 Se realizó una refactorización completa en todas las capas de la aplicación (Arquitectura MVC / Capas):
 
-* **Refactorización de Dominio:** Transición completa del modelo `Employee` al modelo `Futbolista`.
 * **Capa de Entidad (`Entity`):** Se rediseñó la clase para incluir atributos específicos del dominio deportivo, aplicando principios de encapsulamiento:
   * `nombre` y `apellido`
   * `posicion` (ej. Delantero, Portero)
