@@ -1,0 +1,39 @@
+1. Crear la base de datos
+CREATE DATABASE IF NOT EXISTS `futbolistas_directorio`;
+USE `futbolistas_directorio`;
+
+-----------------------------------------------------------------------------------------------------
+
+
+2. Crear el usuario y darle contraseña
+CREATE USER IF NOT EXISTS 'springfutbolista'@'localhost' IDENTIFIED BY 'springfutbolista';
+
+-----------------------------------------------------------------------------------------------------
+
+
+3. Darle permisos al usuario
+GRANT ALL PRIVILEGES ON futbolistas_directorio.* TO 'springfutbolista'@'localhost';
+FLUSH PRIVILEGES;
+
+-----------------------------------------------------------------------------------------------------
+
+
+4. Crear la tabla
+DROP TABLE IF EXISTS `futbolista`;
+CREATE TABLE `futbolista` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  `apellido` varchar(45) DEFAULT NULL,
+  `posicion` varchar(45) DEFAULT NULL,
+  `seleccion` varchar(45) DEFAULT NULL,
+  `club` varchar(45) DEFAULT NULL,
+  `goles_totales` int DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+-----------------------------------------------------------------------------------------------------
+
+5. Insertar datos de prueba
+INSERT INTO `futbolista` (nombre, apellido, posicion, seleccion, club, goles_totales) VALUES 
+('Luka', 'Modric', 'Mediocampista', 'Croacia', 'Real Madrid', 130),
+('Erling', 'Haaland', 'Delantero', 'Noruega', 'Manchester City', 250);
