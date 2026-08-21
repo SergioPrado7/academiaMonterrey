@@ -1,7 +1,7 @@
 package com.luv2code.springboot.cruddemo.rest;
 
 import tools.jackson.databind.json.JsonMapper;
-import com.luv2code.springboot.cruddemo.entity.Employee;
+import com.luv2code.springboot.cruddemo.entity.Futbolista;
 import com.luv2code.springboot.cruddemo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,16 +25,16 @@ public class EmployeeRestController {
 
     // expose "/employees" and return a list of employees
     @GetMapping("/employees")
-    public List<Employee> findAll() {
+    public List<Futbolista> findAll() {
         return employeeService.findAll();
     }
 
     // add mapping for GET /employees/{employeeId}
 
     @GetMapping("/employees/{employeeId}")
-    public Employee getEmployee(@PathVariable int employeeId) {
+    public Futbolista getEmployee(@PathVariable int employeeId) {
 
-        Employee theEmployee = employeeService.findById(employeeId);
+        Futbolista theEmployee = employeeService.findById(employeeId);
 
         if (theEmployee == null) {
             throw new RuntimeException("Employee id not found - " + employeeId);
@@ -46,14 +46,14 @@ public class EmployeeRestController {
     // add mapping for POST /employees - add new employee
 
     @PostMapping("/employees")
-    public Employee addEmployee(@RequestBody Employee theEmployee) {
+    public Futbolista addEmployee(@RequestBody Futbolista theEmployee) {
 
         // also just in case they pass an id in JSON ... set id to 0
         // this is to force a save of new item ... instead of update
 
         theEmployee.setId(0);
 
-        Employee dbEmployee = employeeService.save(theEmployee);
+        Futbolista dbEmployee = employeeService.save(theEmployee);
 
         return dbEmployee;
     }
@@ -61,9 +61,9 @@ public class EmployeeRestController {
     // add mapping for PUT /employees - update existing employee
 
     @PutMapping("/employees")
-    public Employee updateEmployee(@RequestBody Employee theEmployee) {
+    public Futbolista updateEmployee(@RequestBody Futbolista theEmployee) {
 
-        Employee dbEmployee = employeeService.save(theEmployee);
+        Futbolista dbEmployee = employeeService.save(theEmployee);
 
         return dbEmployee;
     }
@@ -72,11 +72,11 @@ public class EmployeeRestController {
     // update
 
     @PatchMapping("/employees/{employeeId}")
-    public Employee patchEmployee(@PathVariable int employeeId,
+    public Futbolista patchEmployee(@PathVariable int employeeId,
             @RequestBody Map<String, Object> patchPayload) {
 
         // Step 1: Retrieve the existing employee from database
-        Employee tempEmployee = employeeService.findById(employeeId);
+        Futbolista tempEmployee = employeeService.findById(employeeId);
 
         if (tempEmployee == null) {
             throw new RuntimeException("Employee id not found - " + employeeId);
@@ -91,10 +91,10 @@ public class EmployeeRestController {
 
         // Step 3: Apply the partial update
         // This creates a NEW employee object with the updates applied
-        Employee patchedEmployee = jsonMapper.updateValue(tempEmployee, patchPayload);
+        Futbolista patchedEmployee = jsonMapper.updateValue(tempEmployee, patchPayload);
 
         // Step 4: Save the updated employee to database and return it
-        Employee dbEmployee = employeeService.save(patchedEmployee);
+        Futbolista dbEmployee = employeeService.save(patchedEmployee);
 
         return dbEmployee;
     }
@@ -104,7 +104,7 @@ public class EmployeeRestController {
     @DeleteMapping("/employees/{employeeId}")
     public String deleteEmployee(@PathVariable int employeeId) {
 
-        Employee tempEmployee = employeeService.findById(employeeId);
+        Futbolista tempEmployee = employeeService.findById(employeeId);
 
         // throw exception if null
 
