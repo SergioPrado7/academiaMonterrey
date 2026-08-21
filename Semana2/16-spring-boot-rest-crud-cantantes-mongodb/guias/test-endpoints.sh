@@ -1,7 +1,7 @@
 #!/bin/bash
-# Prueba end-to-end de todos los endpoints de CantanteRestController (MongoDB)
+# Prueba end-to-end de todos los endpoints de FutbolistaRestController (MongoDB)
 # Puerto 8081
-BASE="http://localhost:8081/api/cantantes"
+BASE="http://localhost:8081/api/futbolistas"
 
 # Un ObjectId con formato valido que no existe en la coleccion
 FANTASMA="000000000000000000000000"
@@ -20,9 +20,9 @@ req()  {
 paso "1. GET todos (estado inicial)"
 curl -s "$BASE" | jq .
 
-paso "2. POST crear cantante"
+paso "2. POST crear futbolista"
 NUEVO=$(curl -s -X POST "$BASE" -H "Content-Type: application/json" \
-  -d '{"nombre":"Luis Miguel","nacionalidad":"Mexicana","popularidad":95,"ganancias":150.5,"albumMasVendido":"Romances"}')
+  -d '{"nombre":"Lionel","apellido":"Messi","posicion":"Delantero","seleccion":"Argentina","club":"Inter Miami","golesTotales":838}')
 echo "$NUEVO" | jq .
 ID=$(echo "$NUEVO" | jq -r '.id')
 echo "  ➜ ObjectId asignado: $ID"
@@ -31,13 +31,13 @@ paso "3. GET por id ($ID)"
 req GET "$BASE/$ID"
 
 paso "4. PUT actualización completa"
-req PUT "$BASE" "{\"id\":\"$ID\",\"nombre\":\"Luis Miguel\",\"nacionalidad\":\"Mexicana\",\"popularidad\":98,\"ganancias\":180.0,\"albumMasVendido\":\"Romance\"}"
+req PUT "$BASE" "{\"id\":\"$ID\",\"nombre\":\"Lionel\",\"apellido\":\"Messi\",\"posicion\":\"Delantero\",\"seleccion\":\"Argentina\",\"club\":\"Inter Miami\",\"golesTotales\":840}"
 
-paso "5. PATCH actualización parcial (solo ganancias)"
-req PATCH "$BASE/$ID" '{"ganancias":200.0}'
+paso "5. PATCH actualización parcial (solo golesTotales)"
+req PATCH "$BASE/$ID" '{"golesTotales":845}'
 
 paso "6. PATCH con id en el body (debe fallar: 500 por seguridad)"
-req PATCH "$BASE/$ID" '{"id":"999","popularidad":100}'
+req PATCH "$BASE/$ID" '{"id":"999","golesTotales":900}'
 
 paso "7. GET de un ObjectId inexistente (debe fallar: 500 id not found)"
 req GET "$BASE/$FANTASMA"
