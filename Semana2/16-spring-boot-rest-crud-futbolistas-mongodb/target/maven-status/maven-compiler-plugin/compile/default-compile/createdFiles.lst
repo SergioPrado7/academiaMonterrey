@@ -1,0 +1,6 @@
+com\luv2code\springboot\cruddemo\entity\Futbolista.class
+com\luv2code\springboot\cruddemo\repository\FutbolistaRepository.class
+com\luv2code\springboot\cruddemo\CruddemoApplication.class
+com\luv2code\springboot\cruddemo\rest\FutbolistaRestController.class
+com\luv2code\springboot\cruddemo\service\FutbolistaService.class
+com\luv2code\springboot\cruddemo\service\FutbolistaServiceImpl.class

@@ -31,6 +31,86 @@ Write-Host "  ➜ ObjectId asignado: $ID" -ForegroundColor Green
 
 ---------------------------------------------------------------------------------------------------------------------------
 
+# 1. POST crear futbolista - Cristiano Ronaldo
+$bodyCR7 = @{
+    nombre = "Cristiano"
+    apellido = "Ronaldo"
+    posicion = "Delantero"
+    seleccion = "Portugal"
+    club = "Al-Nassr"
+    golesTotales = 895
+} | ConvertTo-Json
+$nuevoCR7 = Invoke-RestMethod -Method POST -Uri $BASE -Body $bodyCR7 -ContentType "application/json"
+$nuevoCR7 | ConvertTo-Json
+$ID_CR7 = $nuevoCR7.id
+Write-Host "  ➜ ObjectId asignado a CR7: $ID_CR7" -ForegroundColor Green
+
+---------------------------------------------------------------------------------------------------------------------------
+
+# 2. POST crear futbolista - Kylian Mbappe
+$bodyMbappe = @{
+    nombre = "Kylian"
+    apellido = "Mbappe"
+    posicion = "Delantero"
+    seleccion = "Francia"
+    club = "Real Madrid"
+    golesTotales = 330
+} | ConvertTo-Json
+$nuevoMbappe = Invoke-RestMethod -Method POST -Uri $BASE -Body $bodyMbappe -ContentType "application/json"
+$nuevoMbappe | ConvertTo-Json
+$ID_Mbappe = $nuevoMbappe.id
+Write-Host "  ➜ ObjectId asignado a Mbappe: $ID_Mbappe" -ForegroundColor Green
+
+---------------------------------------------------------------------------------------------------------------------------
+
+# 3. POST crear futbolista - Kevin De Bruyne
+$bodyKDB = @{
+    nombre = "Kevin"
+    apellido = "De Bruyne"
+    posicion = "Mediocampista"
+    seleccion = "Belgica"
+    club = "Manchester City"
+    golesTotales = 150
+} | ConvertTo-Json
+$nuevoKDB = Invoke-RestMethod -Method POST -Uri $BASE -Body $bodyKDB -ContentType "application/json"
+$nuevoKDB | ConvertTo-Json
+$ID_KDB = $nuevoKDB.id
+Write-Host "  ➜ ObjectId asignado a De Bruyne: $ID_KDB" -ForegroundColor Green
+
+---------------------------------------------------------------------------------------------------------------------------
+
+# 4. POST crear futbolista - Virgil van Dijk
+$bodyVVD = @{
+    nombre = "Virgil"
+    apellido = "van Dijk"
+    posicion = "Defensa"
+    seleccion = "Paises Bajos"
+    club = "Liverpool"
+    golesTotales = 50
+} | ConvertTo-Json
+$nuevoVVD = Invoke-RestMethod -Method POST -Uri $BASE -Body $bodyVVD -ContentType "application/json"
+$nuevoVVD | ConvertTo-Json
+$ID_VVD = $nuevoVVD.id
+Write-Host "  ➜ ObjectId asignado a Van Dijk: $ID_VVD" -ForegroundColor Green
+
+---------------------------------------------------------------------------------------------------------------------------
+
+# 5. POST crear futbolista - Thibaut Courtois
+$bodyCourtois = @{
+    nombre = "Thibaut"
+    apellido = "Courtois"
+    posicion = "Portero"
+    seleccion = "Belgica"
+    club = "Real Madrid"
+    golesTotales = 0
+} | ConvertTo-Json
+$nuevoCourtois = Invoke-RestMethod -Method POST -Uri $BASE -Body $bodyCourtois -ContentType "application/json"
+$nuevoCourtois | ConvertTo-Json
+$ID_Courtois = $nuevoCourtois.id
+Write-Host "  ➜ ObjectId asignado a Courtois: $ID_Courtois" -ForegroundColor Green
+
+---------------------------------------------------------------------------------------------------------------------------
+
 paso "3. GET por id ($ID)"
 Invoke-RestMethod -Method GET -Uri "$BASE/$ID" | ConvertTo-Json
 

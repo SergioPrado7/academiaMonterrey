@@ -1,6 +1,0 @@
-com\luv2code\springboot\cruddemo\service\CantanteServiceImpl.class
-com\luv2code\springboot\cruddemo\rest\CantanteRestController.class
-com\luv2code\springboot\cruddemo\repository\CantanteRepository.class
-com\luv2code\springboot\cruddemo\CruddemoApplication.class
-com\luv2code\springboot\cruddemo\service\CantanteService.class
-com\luv2code\springboot\cruddemo\entity\Cantante.class
