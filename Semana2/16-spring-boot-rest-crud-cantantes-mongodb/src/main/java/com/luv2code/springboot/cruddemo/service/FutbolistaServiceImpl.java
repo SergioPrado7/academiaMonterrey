@@ -8,32 +8,32 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CantanteServiceImpl implements CantanteService {
+public class FutbolistaServiceImpl implements FutbolistaService {
 
-    private FutbolistaRepository cantanteRepository;
+    private FutbolistaRepository futbolistaRepository;
 
     @Autowired
-    public CantanteServiceImpl(FutbolistaRepository theCantanteRepository) {
-        cantanteRepository = theCantanteRepository;
+    public FutbolistaServiceImpl(FutbolistaRepository theFutbolistaRepository) {
+        futbolistaRepository = theFutbolistaRepository;
     }
 
     @Override
     public List<Futbolista> findAll() {
-        return cantanteRepository.findAll();
+        return futbolistaRepository.findAll();
     }
 
     @Override
     public Futbolista findById(String theId) {
-        return cantanteRepository.findById(theId).orElse(null);
+        return futbolistaRepository.findById(theId).orElse(null);
     }
 
     @Override
-    public Futbolista save(Futbolista elCantante) {
-        return cantanteRepository.save(elCantante);
+    public Futbolista save(Futbolista elFutbolista) {
+        return futbolistaRepository.save(elFutbolista);
     }
 
     @Override
     public void deleteById(String theId) {
-        cantanteRepository.deleteById(theId);
+        futbolistaRepository.deleteById(theId);
     }
 }
