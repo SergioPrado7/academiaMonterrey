@@ -4,14 +4,12 @@ import com.luv2code.springboot.cruddemo.entity.Cantante;
 
 import java.util.List;
 
-public interface EmployeeService {
-
+public interface CantanteService {
     List<Cantante> findAll();
-
+    
     Cantante findById(String theId);
-
-    Cantante save(Cantante theEmployee);
-
+    
+    Cantante save(Cantante elCantante);
+    
     void deleteById(String theId);
-
 }

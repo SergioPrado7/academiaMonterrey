@@ -2,7 +2,7 @@ package com.luv2code.springboot.cruddemo.rest;
 
 import tools.jackson.databind.json.JsonMapper;
 import com.luv2code.springboot.cruddemo.entity.Cantante;
-import com.luv2code.springboot.cruddemo.service.EmployeeService;
+import com.luv2code.springboot.cruddemo.service.CantanteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,12 +13,12 @@ import java.util.Map;
 @RequestMapping("/api")
 public class EmployeeRestController {
 
-    private EmployeeService employeeService;
+    private CantanteService employeeService;
 
     private JsonMapper jsonMapper;
 
     @Autowired
-    public EmployeeRestController(EmployeeService theEmployeeService, JsonMapper theJsonMapper) {
+    public EmployeeRestController(CantanteService theEmployeeService, JsonMapper theJsonMapper) {
         employeeService = theEmployeeService;
         jsonMapper = theJsonMapper;
     }
