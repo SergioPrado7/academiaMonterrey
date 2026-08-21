@@ -1,6 +1,6 @@
 package com.luv2code.springboot.cruddemo.service;
 
-import com.luv2code.springboot.cruddemo.dao.EmployeeRepository;
+import com.luv2code.springboot.cruddemo.dao.FutbolistaRepository;
 import com.luv2code.springboot.cruddemo.entity.Futbolista;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,10 +11,10 @@ import java.util.Optional;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private EmployeeRepository employeeRepository;
+    private FutbolistaRepository employeeRepository;
 
     @Autowired
-    public EmployeeServiceImpl(EmployeeRepository theEmployeeRepository) {
+    public EmployeeServiceImpl(FutbolistaRepository theEmployeeRepository) {
         employeeRepository = theEmployeeRepository;
     }
 
