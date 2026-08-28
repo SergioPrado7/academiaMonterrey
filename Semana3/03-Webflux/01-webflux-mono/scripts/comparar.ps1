@@ -1,66 +1,88 @@
 # comparar.ps1
-# EL EXPERIMENTO DEL CURSO.
-# Se le puede pasar el numero de peticiones, por defecto son 50.
-# Ejemplo de uso: .\comparar.ps1 50
 
-param (
-    [int]$N = 50
+param(
+[int]$N = 50
 )
 
 $BASE = "http://localhost:8074"
 
-# Intentamos leer la latencia directo del archivo Java
-$Fuente = Join-Path $PSScriptRoot "..\src\main\java\com\academymty\webflux\mono\repo\EmployeeRepository.java"
-if (Test-Path $Fuente) {
-    $RegexMatch = Select-String -Path $Fuente -Pattern 'ofMillis\(([0-9]+)\)'
-    $LatMs = $RegexMatch.Matches.Groups[1].Value
-    $Lat = [math]::Round([double]$LatMs / 1000, 3)
-} else {
-    Write-Host "No pude encontrar el archivo Java, asumiendo 5 segundos." -ForegroundColor Yellow
-    $Lat = 5
+$FUENTE = Join-Path $PSScriptRoot "..\src\main\java\com\academymty\webflux\mono\repo\EmployeeRepository.java"
+
+$Contenido = Get-Content $FUENTE -Raw
+
+$Match = [regex]::Match($Contenido, 'ofMillis\([0-9]+\)')
+
+if (-not $Match.Success) {
+Write-Host "No pude leer LATENCIA de $FUENTE. Revisa que siga siendo Duration.ofMillis(N)." -ForegroundColor Red
+exit 1
 }
 
-# Sacamos los nucleos del endpoint
-$RespuestaHilo = curl.exe -s "$BASE/api/hilo" | ConvertFrom-Json
-if (-not $RespuestaHilo) {
-    Write-Host "No responde $BASE — ¿arrancaste la app?" -ForegroundColor Red
-    exit
-}
-$Nucleos = $RespuestaHilo.hilosDisponibles
+$LAT_MS = [regex]::Match($Match.Value, '[0-9]+').Value
+$LAT = [math]::Round([double]$LAT_MS / 1000, 3)
 
-# Funcion para medir el tiempo de las N peticiones concurrentes
+$RespuestaHilo = Invoke-RestMethod "$BASE/api/hilo"
+$NUCLEOS = $RespuestaHilo.hilosDisponibles
+
+if (-not $NUCLEOS) {
+Write-Host "No responde $BASE"
+exit 1
+}
+
 function Medir {
-    param([string]$Ruta, [string]$Nombre)
-    
-    $Ini = [datetime]::UtcNow
-    $Procesos = @()
-    
-    # Lanzamos las N peticiones a la vez (procesos ocultos para no ensuciar la pantalla)
-    for ($i = 0; $i -lt $N; $i++) {
-        $Procesos += Start-Process -FilePath "curl.exe" -ArgumentList "-s","-o","NUL","$BASE$Ruta" -PassThru -WindowStyle Hidden
-    }
-    
-    # Esperamos a que terminen todas
-    $Procesos | Wait-Process
-    $Fin = [datetime]::UtcNow
-    
-    $Tiempo = ($Fin - $Ini).TotalSeconds
-    Write-Host "  $($Nombre.PadRight(12)) $N peticiones en $($Tiempo.ToString('0.00')) s" -ForegroundColor Green
+param(
+[string]$Ruta,
+[string]$Nombre
+)
+
+$Ini = [datetime]::UtcNow
+$Procesos = @()
+
+for ($i = 1; $i -le $N; $i++) {
+$Procesos += Start-Process -FilePath "curl.exe" -ArgumentList "-s", "-o", "NUL", "$BASE$Ruta" -PassThru -WindowStyle Hidden
 }
 
-$EsperadoBloq = [math]::Round(($N / $Nucleos) * $Lat, 2)
-$Tandas = [math]::Round($N / $Nucleos, 1)
+$Procesos | Wait-Process
 
-Write-Host "`n  Tu maquina tiene $Nucleos nucleos, asi que el event loop de Netty tiene"
-Write-Host "  ~$Nucleos hilos. Lanzamos $N peticiones CONCURRENTES a cada ruta.`n"
+$Fin = [datetime]::UtcNow
+$Tiempo = ($Fin - $Ini).TotalSeconds
+
+Write-Host ("  {0,-12} {1,3} peticiones en {2,6:N2} s" -f $Nombre, $N, $Tiempo)
+}
+
+$esperado_bloq = [math]::Round(($N / [double]$NUCLEOS) * $LAT, 2)
+$tandas = [math]::Round($N / [double]$NUCLEOS, 1)
+
+Write-Host ""
+
+Write-Host "  Tu maquina tiene $NUCLEOS nucleos, asi que el event loop de Netty tiene"
+Write-Host "  ~$NUCLEOS hilos. Lanzamos $N peticiones CONCURRENTES a cada ruta."
+
+Write-Host ""
 
 Write-Host "  Prediccion antes de correrlo:"
-Write-Host "    reactivo    -> ~${Lat}s   (ningun hilo espera: las $N se solapan)"
-Write-Host "    bloqueante  -> ~${EsperadoBloq}s   ($N peticiones / $Nucleos hilos = $Tandas tandas de ${Lat}s)`n"
+Write-Host "    reactivo    -> ~${LAT}s   (ningun hilo espera: las $N se solapan)"
+Write-Host "    bloqueante  -> ~${esperado_bloq}s   ($N peticiones / $NUCLEOS hilos = $tandas tandas de ${LAT}s)"
+
+Write-Host ""
 
 Medir "/api/employees/1" "reactivo"
 Medir "/api/mvc/employees/1" "bloqueante"
 
-Write-Host "`n  La leccion NO es 'reactivo es rapido'. Las dos rutas tardan 5 s en el dato."
-Write-Host "  La leccion es que el bloqueante DESPERDICIA los hilos que tiene, durmiendolos,"
-Write-Host "  y por eso las peticiones hacen cola. El reactivo los suelta y no encola nada.`n"
+Write-Host ""
+
+Write-Host "  Cuadro la prediccion? Si tu maquina tiene mas nucleos, la diferencia es menor;"
+Write-Host "  si tiene menos, es brutal. Prueba con: .\scripts\comparar.ps1 200"
+
+Write-Host ""
+
+Write-Host '  La leccion NO es "reactivo es rapido". Las dos rutas tardan 5 s en el dato.'
+Write-Host "  La leccion es que el bloqueante DESPERDICIA los $NUCLEOS hilos que tiene, durmiendolos,"
+Write-Host "  y por eso las peticiones hacen cola. El reactivo los suelta y no encola nada."
+
+Write-Host ""
+
+Write-Host "  Y ojo: el bloqueante no es un endpoint raro que inventamos. Es EXACTAMENTE el"
+Write-Host "  codigo del proyecto 15 pegado dentro de una app WebFlux. Esa es la trampa del"
+Write-Host "  proyecto: si tu repositorio bloquea (JPA/JDBC), WebFlux no te da nada."
+
+Write-Host ""
