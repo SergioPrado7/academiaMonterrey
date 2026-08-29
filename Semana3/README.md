@@ -1,8 +1,8 @@
-# Proyectos de la Semana 3
+# 📌 Proyectos de la Semana 3
 
 Bienvenido a la carpeta correspondiente a la tercera semana de actividades. En esta seccion se encuentran todos los laboratorios y practicas desarrollados para dominar los cuatro conceptos avanzados requeridos en esta etapa.
 
-## Estructura de las Carpetas
+## 📂 Estructura de las Carpetas
 
 Para mantener el orden y facilitar la revision, el trabajo de esta semana se dividio en cuatro directorios principales:
 
@@ -11,7 +11,7 @@ Para mantener el orden y facilitar la revision, el trabajo de esta semana se div
 * **03-Webflux**: Incluye los laboratorios de programacion reactiva demostrando el manejo de flujos asincronos mediante Mono y Flux.
 * **04-Unit-Testing**: Contiene las suites de pruebas unitarias implementando aserciones con JUnit y simulacion de dependencias con Mockito.
 
-## Documentacion y Explicacion de Conceptos
+## 📄 Documentacion y Explicacion de Conceptos
 
 Para entender a detalle el funcionamiento de cada practica, **dentro de cada una de las carpetas mencionadas encontraras un documento en formato PDF**.
 
