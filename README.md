@@ -14,7 +14,7 @@ El plan de estudios está dividido por semanas. Cada carpeta contiene los ejerci
 
 *   📁 **`Semana1/`** - Fundamentos teóricos y primeros acercamientos al código.
 *   📁 **`Semana2/`** - Conceptos avanzados de Arquitectura (Inyección de Dependencias / IoC), APIs REST con Spring Boot y conexiones a bases de datos (JPA/MongoDB).
-*   📁 **`Semana3/`** - *(En desarrollo)*
+*   📁 **`Semana3/`** - Core Avanzado, Seguridad con Keycloak, Programación Reactiva con Spring WebFlux y Pruebas Unitarias con JUnit y Mockito.
 *   📁 **`Semana4/`** - *(En desarrollo)*
 *   📁 **`Semana5/`** - *(En desarrollo)*
 *   📁 **`Semana6/`** - *(En desarrollo)*
