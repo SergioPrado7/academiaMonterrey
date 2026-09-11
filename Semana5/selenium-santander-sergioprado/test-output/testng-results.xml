@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="9" passed="9" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-09-08T13:55:23 CST" name="Default suite" finished-at="2026-09-08T14:01:47 CST" duration-ms="384667">
+    <groups>
+    </groups>
+    <test started-at="2026-09-08T13:55:23 CST" name="Default test" finished-at="2026-09-08T14:01:47 CST" duration-ms="384667">
+      <class name="tests.SantanderNavigationTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:55:23 CST" name="setUp" finished-at="2026-09-08T13:55:29 CST" duration-ms="5948" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="shouldNavigatePersonasCreditos()[pri:1, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:55:29 CST" name="shouldNavigatePersonasCreditos" finished-at="2026-09-08T13:55:58 CST" duration-ms="29290" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldNavigatePersonasCreditos -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:55:58 CST" name="tearDown" finished-at="2026-09-08T13:55:58 CST" duration-ms="571" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:55:58 CST" name="setUp" finished-at="2026-09-08T13:56:06 CST" duration-ms="7182" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="shouldNavigatePersonasCanalesDigitales()[pri:2, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:56:06 CST" name="shouldNavigatePersonasCanalesDigitales" finished-at="2026-09-08T13:56:22 CST" duration-ms="16719" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldNavigatePersonasCanalesDigitales -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:56:22 CST" name="tearDown" finished-at="2026-09-08T13:56:23 CST" duration-ms="533" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:56:23 CST" name="setUp" finished-at="2026-09-08T13:56:31 CST" duration-ms="8321" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="shouldNavigatePersonasCuentas()[pri:3, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:56:31 CST" name="shouldNavigatePersonasCuentas" finished-at="2026-09-08T13:56:59 CST" duration-ms="28082" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldNavigatePersonasCuentas -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:56:59 CST" name="tearDown" finished-at="2026-09-08T13:57:00 CST" duration-ms="791" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:57:00 CST" name="setUp" finished-at="2026-09-08T13:57:07 CST" duration-ms="7205" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="shouldNavigatePersonasInversionesYSeguros()[pri:4, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:57:07 CST" name="shouldNavigatePersonasInversionesYSeguros" finished-at="2026-09-08T13:57:55 CST" duration-ms="47874" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldNavigatePersonasInversionesYSeguros -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:57:55 CST" name="tearDown" finished-at="2026-09-08T13:57:56 CST" duration-ms="645" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:57:56 CST" name="setUp" finished-at="2026-09-08T13:58:03 CST" duration-ms="7168" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="shouldNavigatePersonasAyudaYBeneficios()[pri:5, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:58:03 CST" name="shouldNavigatePersonasAyudaYBeneficios" finished-at="2026-09-08T13:59:19 CST" duration-ms="76259" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldNavigatePersonasAyudaYBeneficios -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:59:19 CST" name="tearDown" finished-at="2026-09-08T13:59:20 CST" duration-ms="779" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:59:20 CST" name="setUp" finished-at="2026-09-08T13:59:27 CST" duration-ms="7124" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="shouldNavigateEmpresasLinks()[pri:6, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:59:27 CST" name="shouldNavigateEmpresasLinks" finished-at="2026-09-08T13:59:38 CST" duration-ms="10887" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldNavigateEmpresasLinks -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:59:38 CST" name="tearDown" finished-at="2026-09-08T13:59:39 CST" duration-ms="492" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:59:39 CST" name="setUp" finished-at="2026-09-08T13:59:46 CST" duration-ms="7030" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="shouldNavigatePymesLinks()[pri:7, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T13:59:46 CST" name="shouldNavigatePymesLinks" finished-at="2026-09-08T14:00:44 CST" duration-ms="58637" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldNavigatePymesLinks -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T14:00:44 CST" name="tearDown" finished-at="2026-09-08T14:00:45 CST" duration-ms="785" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T14:00:45 CST" name="setUp" finished-at="2026-09-08T14:00:52 CST" duration-ms="6916" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="shouldNavigateBancaPrivadaLink()[pri:8, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T14:00:52 CST" name="shouldNavigateBancaPrivadaLink" finished-at="2026-09-08T14:01:00 CST" duration-ms="8508" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldNavigateBancaPrivadaLink -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T14:01:00 CST" name="tearDown" finished-at="2026-09-08T14:01:01 CST" duration-ms="402" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T14:01:01 CST" name="setUp" finished-at="2026-09-08T14:01:07 CST" duration-ms="6520" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="shouldNavigateAcercaDelBancoLinks()[pri:9, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T14:01:07 CST" name="shouldNavigateAcercaDelBancoLinks" finished-at="2026-09-08T14:01:47 CST" duration-ms="39533" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldNavigateAcercaDelBancoLinks -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SantanderNavigationTest@2aceadd4]" started-at="2026-09-08T14:01:47 CST" name="tearDown" finished-at="2026-09-08T14:01:47 CST" duration-ms="386" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.SantanderNavigationTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
